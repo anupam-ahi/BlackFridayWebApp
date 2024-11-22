@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Tax-Free State</title>
+</head>
+<body>
+<h1 id="message">The nearest tax-free state is {state} {zip code}</h1>
+
+<script>
+    // Simulate fetching data from the backend
+    fetch('/api/nearest-tax-free-state')
+        .then(response => response.json())
+        .then(data => {
+            const messageElement = document.getElementById('message');
+            messageElement.textContent = `The nearest tax-free state is ${data.state} ${data.zipCode}`;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+</script>
+</body>
+</html>
